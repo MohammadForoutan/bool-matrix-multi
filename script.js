@@ -31,7 +31,7 @@ function calcMatrix() {
 	// draw it
 	drawA();
 	drawB();
-    DrawResult();
+	DrawResult();
 }
 
 function multiply(Aj, Ai, A, Bj, Bi, B) {
@@ -45,9 +45,11 @@ function multiply(Aj, Ai, A, Bj, Bi, B) {
 		for (j = 0; j < Bi; j++) {
 			res[i][j] = 0;
 			for (x = 0; x < Ai; x++) {
-				val = A[i][x] * B[x][j];
-                console.log({val});
-                res[i][j] = val;
+				let val = A[i][x] * B[x][j];
+				if (val > 1) {
+					val = 1;
+				}
+				res[i][j] += val;
 			}
 		}
 	}
@@ -55,11 +57,17 @@ function multiply(Aj, Ai, A, Bj, Bi, B) {
 
 function DrawResult() {
 	const ans = document.querySelector(".ans");
-    ans.innerHTML = ""
+	ans.innerHTML = "";
 	// Draw matrix on screen
+
+	console.log({ res });
 	for (i = 0; i < Aj; i++) {
 		for (j = 0; j < Bi; j++) {
-			ans.innerHTML += res[i][j] + " ";
+			let tmp;
+			if (res[i][j] > 1) {
+				tmp = 1;
+			} else { tmp = res[i][j]}
+			ans.innerHTML += tmp + " ";
 		}
 		ans.innerHTML += "<br>";
 	}
@@ -67,7 +75,7 @@ function DrawResult() {
 
 function drawA() {
 	const matrixA = document.querySelector(".m-a");
-    matrixA.innerHTML = ""
+	matrixA.innerHTML = "";
 	// Draw matrix on screen
 	for (i = 0; i < Aj; i++) {
 		for (j = 0; j < Ai; j++) {
@@ -79,7 +87,7 @@ function drawA() {
 
 function drawB() {
 	const matrixB = document.querySelector(".m-b");
-    matrixB.innerHTML = ""
+	matrixB.innerHTML = "";
 
 	// Draw matrix on screen
 	for (i = 0; i < Bj; i++) {
