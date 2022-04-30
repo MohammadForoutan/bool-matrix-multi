@@ -3,68 +3,67 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./style.css" />
-    <title>MATRIX</title>
+		<title>MATRIX</title>
 	</head>
 	<body>
-    <div>
-      <ol>
-        <li>Enter matrix A</li>
-        <li>Enter matrix B</li>
-        <li>Submit</li>
-      </ol>
-    </div>
-    <hr>
-    <i style="font-weight: bold; color: rgb(198, 78, 78);">### delete default value and enter your value ###</i>
-    <div class="input-container d-flex">
-      <div>
-        <div>
-          <h4 class="t-center">input matrix A</h4>
-        </div>
-        <textarea class="mx-auto" id="input-a" cols="20" rows="10">
+		<div>
+			<details>
+				<summary style="cursor: pointer;">CLICK FOR HELP!</summary>
+				<ol style="font-size: 15px;">
+					<li>Enter matrix A</li>
+					<li>Enter matrix B</li>
+					<li>Submit</li>
+				</ol>
+			</details>
+		</div>
+		<hr />
+		<i style="font-weight: bold; color: rgb(198, 78, 78)">### delete default value and enter your value ###</i>
+		<div class="input-container d-flex">
+			<div>
+				<div>
+					<h4 class="t-center">input matrix A</h4>
+				</div>
+				<textarea class="mx-auto" id="input-a" cols="20" rows="10">
 1 1 0
 0 1 0
 1 1 0
 0 0 1
         </textarea>
-      </div>
-      <div>
-        <h4 class="t-center">input matrix B</h4>
-        <textarea class="mx-auto" id="input-b" cols="20" rows="10">
+			</div>
+			<div>
+				<h4 class="t-center">input matrix B</h4>
+				<textarea class="mx-auto" id="input-b" cols="20" rows="10">
 1 0 0 0
 0 1 1 0
 1 0 1 1
         </textarea>
-      </div>
-    </div>
-    <br>
-    <div class="d-flex" style="align-items: center;">
-      <button id="btn" class="btn mx-auto">Submit</button>
-    </div>
+			</div>
+		</div>
+		<br />
+		<div class="d-flex" style="align-items: center">
+			<button id="btn" class="btn mx-auto">Submit</button>
+		</div>
 		<div class="container">
-      <!-- MATRIX ANSWER -->
+			<!-- MATRIX ANSWER -->
 			<div>
 				<h3>A * B</h3>
-				<div class="ans MATRIX">
-        </div>
+				<div class="ans MATRIX"></div>
 			</div>
-      <!-- MATRIX A -->
-      <div>
+			<!-- MATRIX A -->
+			<div>
 				<h4>MATRIX A</h4>
-				<div class="m-a MATRIX">
-        </div>
+				<div class="m-a MATRIX"></div>
 			</div>
-      <!-- MATRIX B -->
-      <div>
+			<!-- MATRIX B -->
+			<div>
 				<h4>MATRIX B</h4>
 				<div class="m-b MATRIX"></div>
 			</div>
 		</div>
-    <br>
-    <footer style="background: black; padding: 15px; font-size: 15px;" class="t-center">
-      <i>
-        Boolean MATRIX Manipulation - mmdfrn81@gmail.com
-      </i>
-    </footer>
+		<br />
+		<footer style="background: black; padding: 15px; font-size: 15px" class="t-center">
+			<i> Boolean MATRIX Manipulation - mmdfrn81@gmail.com </i>
+		</footer>
 		<script src="./script1.js"></script>
 	</body>
 </html>
