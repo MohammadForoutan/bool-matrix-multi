@@ -1,0 +1,45 @@
+body {
+	background: #1f2227;
+	font-family: monospace;
+	color: gold;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+}
+
+.container > * {
+    flex: 1;
+}
+
+.d-flex {
+    display: flex;
+}
+.d-flex > * {
+    margin-right: 30px;
+}
+
+.btn {
+    color: gold;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, .5);
+    border: none;
+    outline: none;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+input, textarea {
+    color: wheat;
+    font-size: 20px;
+    background: rgba(0, 0, 0, .5);
+}
+
+.MATRIX {
+    border-right: 8px solid black;
+    border-left: 8px solid black;
+    width: fit-content;
+    padding: 0 10px;
+}

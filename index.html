@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+    <div>
+      <ol>
+        <li>Enter matrix A</li>
+        <li>Enter matrix B</li>
+        <li>Submit</li>
+      </ol>
+    </div>
+    <hr>
+    <i style="font-weight: bold; color: rgb(198, 78, 78);">### delete default value and enter your value ###</i>
+    <div class="input-container d-flex">
+      <div>
+        <div>
+          <h4>input matrix A</h4>
+        </div>
+        <textarea id="input-a" cols="30" rows="10">
+1 1 0
+0 1 0
+1 1 0
+0 0 1
+        </textarea>
+      </div>
+      <div>
+        <h4>input matrix B</h4>
+        <textarea id="input-b" cols="30" rows="10">
+1 0 0 0
+0 1 1 0
+1 0 1 1
+        </textarea>
+      </div>
+    </div>
+    <br>
+    <div class="d-flex" style="align-items: center;">
+      <button id="btn" class="btn">Submit</button>
+    </div>
+		<div class="container">
+      <!-- MATRIX ANSWER -->
+			<div>
+				<h1>A * B</h1>
+				<div class="ans MATRIX"></div>
+			</div>
+      <!-- MATRIX A -->
+      <div>
+				<h1>MATRIX A</h1>
+				<div class="m-a MATRIX"></div>
+			</div>
+      <!-- MATRIX B -->
+      <div>
+				<h1>MATRIX B</h1>
+				<div class="m-b MATRIX"></div>
+			</div>
+		</div>
+		<script src="./script.js"></script>
+	</body>
+</html>
