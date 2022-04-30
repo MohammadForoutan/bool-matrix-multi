@@ -15,11 +15,11 @@ function calcMatrix() {
 	A = inputA.value
 		.trim()
 		.split("\n")
-		.map((t) => t.split(" "));
+		.map((t) => t.trim().split(" "));
 	B = inputB.value
 		.trim()
 		.split("\n")
-		.map((t) => t.split(" "));
+		.map((t) => t.trim().split(" "));
 	// set columns and row
 	Aj = A.length;
 	Bj = B.length;
@@ -56,6 +56,8 @@ function multiply(Aj, Ai, A, Bj, Bi, B) {
 }
 
 function DrawResult() {
+	const con = document.querySelector(".container")
+    con.style.opacity = '1'
 	const ans = document.querySelector(".ans");
 	ans.innerHTML = "";
 	// Draw matrix on screen
