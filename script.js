@@ -45,7 +45,9 @@ function multiply(Aj, Ai, A, Bj, Bi, B) {
 		for (j = 0; j < Bi; j++) {
 			res[i][j] = 0;
 			for (x = 0; x < Ai; x++) {
-				res[i][j] += A[i][x] * B[x][j];
+				val = A[i][x] * B[x][j];
+                console.log({val});
+                res[i][j] = val;
 			}
 		}
 	}
