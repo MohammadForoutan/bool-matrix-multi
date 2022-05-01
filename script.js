@@ -3,6 +3,7 @@ const inputA = document.getElementById("input-a");
 const inputB = document.getElementById("input-b");
 const btn = document.getElementById("btn");
 const con = document.querySelector(".container");
+const info = document.querySelector(".info");
 btn.addEventListener("click", calcMatrix);
 
 let A, B, res, isValidate;
@@ -14,8 +15,6 @@ let Aj, // Matrix A columns
 function multiply(Aj, Ai, A, Bj, Bi, B) {
 	res = new Array(Ai);
 	for (let i = 0; i < Ai; i++) res[i] = new Array(Bj);
-
-	console.log({ res, Aj, Ai, A, Bj, Bi, B});
 
 	for (i = 0; i < Ai; i++) {
 		for (j = 0; j < Bj; j++) {
@@ -84,19 +83,29 @@ function calcMatrix() {
 		.trim()
 		.split("\n")
 		.map((t) => t.trim().split(" "));
-	console.log({ A, B });
 	// set columns and row
 	Aj = A[0].length;
 	Ai = A.length;
 	Bj = B[0].length;
 	Bi = B.length;
+
+	let validMatrix = true;
+	A.map((row) => {
+		if (row.length !== Aj) {
+			validMatrix = false;
+		}
+	});
+
 	// validate matrix
-	if(Aj === Bi) {
+	isValidate = Aj === Bi;
+	if (isValidate && validMatrix) {
 		isValidate = true;
+		info.innerHTML = "";
 	} else {
-		isValidate = false;
+		info.innerHTML = "INVALID MATRIX";
+		info.style.color = "red";
+		return (isValidate = false);
 	}
-	console.log({ isValidate });
 
 	// solve multiply
 	multiply(Aj, Ai, A, Bj, Bi, B);
