@@ -1,84 +1,84 @@
 body {
-	background: #1f2227;
-	font-family: monospace;
-	color: gold;
-	font-size: 24px;
+  background: #1f2227;
+  font-family: monospace;
+  color: gold;
+  font-size: 24px;
 }
 
 .container {
-	opacity: 0;
-	display: flex;
-	justify-content: space-around;
-    transition: .5s;
+  opacity: 0;
+  display: flex;
+  justify-content: space-around;
+  transition: 0.5s;
 }
 
 .input-container {
-	display: flex;
-	justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .d-flex {
-	display: flex;
+  display: flex;
 }
 .d-flex > * {
-	margin-right: 30px;
+  margin-right: 30px;
 }
 
 .btn {
-	color: gold;
-	padding: 15px 30px;
-	font-size: 20px;
-	background-color: rgba(0, 0, 0, 0.5);
-	border: none;
-	outline: none;
-	font-family: monospace;
-	cursor: pointer;
+  color: gold;
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  font-family: monospace;
+  cursor: pointer;
 }
 
 input,
 textarea {
-	color: wheat;
-	font-size: 20px;
-	background: rgba(0, 0, 0, 0.5);
-	max-width: 90vw;
+  color: wheat;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 90vw;
 }
 
 .t-center {
-	text-align: center;
+  text-align: center;
 }
 
 .mx-auto {
-	margin: 0 auto;
-	display: block;
+  margin: 0 auto;
+  display: block;
 }
 
 .MATRIX {
-	border-right: 8px solid black;
-	border-left: 8px solid black;
-	width: fit-content;
-	padding: 0 10px;
+  border-right: 8px solid black;
+  border-left: 8px solid black;
+  width: fit-content;
+  padding: 0 10px;
 }
 
 @media (max-width: 700px) {
-	.container {
-		display: block;
-        opacity: 0;
-	}
+  .container {
+    display: block;
+    opacity: 0;
+  }
 
-	.container > * {
-		margin: 0 auto;
-		display: block;
-		text-align: center;
-	}
+  .container > * {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
 
-	.input-container {
-		display: block;
-	}
+  .input-container {
+    display: block;
+  }
 
-	.input-container > * {
-		margin: 0 auto;
-		display: block;
-	}
-	.MATRIX {
-		margin: 0 auto;
-	}
+  .input-container > * {
+    margin: 0 auto;
+    display: block;
+  }
+  .MATRIX {
+    margin: 0 auto;
+  }
 }

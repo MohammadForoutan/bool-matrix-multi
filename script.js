@@ -1,10 +1,10 @@
 // ENTER TWO MATRIXs
-const inputA = document.getElementById("input-a");
-const inputB = document.getElementById("input-b");
-const btn = document.getElementById("btn");
-const con = document.querySelector(".container");
-const info = document.querySelector(".info");
-btn.addEventListener("click", calcMatrix);
+const inputA = document.getElementById('input-a');
+const inputB = document.getElementById('input-b');
+const btn = document.getElementById('btn');
+const con = document.querySelector('.container');
+const info = document.querySelector('.info');
+btn.addEventListener('click', calcMatrix);
 
 let A, B, res, isValidate;
 let Aj, // Matrix A columns
@@ -28,9 +28,9 @@ function multiply(Aj, Ai, A, Bj, Bi, B) {
 }
 
 function DrawResult() {
-	con.style.opacity = "1";
-	const ans = document.querySelector(".ans");
-	ans.innerHTML = "";
+	con.style.opacity = '1';
+	const ans = document.querySelector('.ans');
+	ans.innerHTML = '';
 	// Draw matrix on screen
 
 	for (i = 0; i < Ai; i++) {
@@ -41,48 +41,48 @@ function DrawResult() {
 			} else {
 				tmp = res[i][j];
 			}
-			ans.innerHTML += tmp + " ";
+			ans.innerHTML += tmp + ' ';
 		}
-		ans.innerHTML += "<br>";
+		ans.innerHTML += '<br>';
 	}
 }
 
 function drawA() {
-	const matrixA = document.querySelector(".m-a");
-	matrixA.innerHTML = "";
+	const matrixA = document.querySelector('.m-a');
+	matrixA.innerHTML = '';
 	// Draw matrix on screen
 	for (i = 0; i < Ai; i++) {
 		for (j = 0; j < Aj; j++) {
-			matrixA.innerHTML += A[i][j] + " ";
+			matrixA.innerHTML += A[i][j] + ' ';
 		}
-		matrixA.innerHTML += "<br>";
+		matrixA.innerHTML += '<br>';
 	}
 }
 
 function drawB() {
-	const matrixB = document.querySelector(".m-b");
-	matrixB.innerHTML = "";
+	const matrixB = document.querySelector('.m-b');
+	matrixB.innerHTML = '';
 
 	// Draw matrix on screen
 	for (i = 0; i < Bi; i++) {
 		for (j = 0; j < Bj; j++) {
-			matrixB.innerHTML += B[i][j] + " ";
+			matrixB.innerHTML += B[i][j] + ' ';
 		}
-		matrixB.innerHTML += "<br>";
+		matrixB.innerHTML += '<br>';
 	}
 }
 
 function calcMatrix() {
-	con.style.opacity = "0";
+	con.style.opacity = '0';
 	// get matrix(text) and convert them to array
 	A = inputA.value
 		.trim()
-		.split("\n")
-		.map((t) => t.trim().split(" "));
+		.split('\n')
+		.map((t) => t.trim().split(' '));
 	B = inputB.value
 		.trim()
-		.split("\n")
-		.map((t) => t.trim().split(" "));
+		.split('\n')
+		.map((t) => t.trim().split(' '));
 	// set columns and row
 	Aj = A[0].length;
 	Ai = A.length;
@@ -100,10 +100,10 @@ function calcMatrix() {
 	isValidate = Aj === Bi;
 	if (isValidate && validMatrix) {
 		isValidate = true;
-		info.innerHTML = "";
+		info.innerHTML = '';
 	} else {
-		info.innerHTML = "INVALID MATRIX";
-		info.style.color = "red";
+		info.innerHTML = 'INVALID MATRIX';
+		info.style.color = 'red';
 		return (isValidate = false);
 	}
 

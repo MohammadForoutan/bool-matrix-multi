@@ -1,0 +1,15 @@
+{
+  "name": "bool-matrix-multi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "format": "prettier *.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+}
