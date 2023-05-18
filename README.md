@@ -1,5 +1,3 @@
-Great! Here's a sample GitHub README.md file that you can use to describe your matrix multiplication program using HTML, CSS, and JS:
-
 # Matrix Multiplication
 
 This is a simple web page that performs matrix multiplication on two matrices using HTML, CSS, and JavaScript. The user can input the size and values of the matrices, and the resulting product matrix will be displayed on the page.
