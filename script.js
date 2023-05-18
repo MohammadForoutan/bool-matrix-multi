@@ -1,119 +1,87 @@
-// ENTER TWO MATRIXs
 const inputA = document.getElementById('input-a');
 const inputB = document.getElementById('input-b');
 const btn = document.getElementById('btn');
-const con = document.querySelector('.container');
+const container = document.querySelector('.container');
 const info = document.querySelector('.info');
-btn.addEventListener('click', calcMatrix);
+btn.addEventListener('click', doMultiply);
 
-let A, B, res, isValidate;
-let Aj, // Matrix A columns
-	Ai, // Matrix A rows
-	Bj, // Matrix B columns
-	Bi; // Matrix B rows
-
-function multiply(Aj, Ai, A, Bj, Bi, B) {
-	res = new Array(Ai);
-	for (let i = 0; i < Ai; i++) res[i] = new Array(Bj);
-
-	for (i = 0; i < Ai; i++) {
-		for (j = 0; j < Bj; j++) {
-			res[i][j] = 0;
-			for (x = 0; x < Aj; x++) {
-				val = A[i][x] * B[x][j];
-				res[i][j] += val;
-			}
-		}
-	}
-}
-
-function DrawResult() {
-	con.style.opacity = '1';
-	const ans = document.querySelector('.ans');
-	ans.innerHTML = '';
-	// Draw matrix on screen
-
-	for (i = 0; i < Ai; i++) {
-		for (j = 0; j < Bj; j++) {
-			let tmp;
-			if (res[i][j] > 1) {
-				tmp = 1;
-			} else {
-				tmp = res[i][j];
-			}
-			ans.innerHTML += tmp + ' ';
-		}
-		ans.innerHTML += '<br>';
-	}
-}
-
-function drawA() {
-	const matrixA = document.querySelector('.m-a');
-	matrixA.innerHTML = '';
-	// Draw matrix on screen
-	for (i = 0; i < Ai; i++) {
-		for (j = 0; j < Aj; j++) {
-			matrixA.innerHTML += A[i][j] + ' ';
-		}
-		matrixA.innerHTML += '<br>';
-	}
-}
-
-function drawB() {
-	const matrixB = document.querySelector('.m-b');
-	matrixB.innerHTML = '';
-
-	// Draw matrix on screen
-	for (i = 0; i < Bi; i++) {
-		for (j = 0; j < Bj; j++) {
-			matrixB.innerHTML += B[i][j] + ' ';
-		}
-		matrixB.innerHTML += '<br>';
-	}
-}
-
-function calcMatrix() {
-	con.style.opacity = '0';
-	// get matrix(text) and convert them to array
-	A = inputA.value
+function extractMatrixFromRawText(matrixRaw) {
+	return matrixRaw.value
 		.trim()
-		.split('\n')
-		.map((t) => t.trim().split(' '));
-	B = inputB.value
-		.trim()
-		.split('\n')
-		.map((t) => t.trim().split(' '));
-	// set columns and row
-	Aj = A[0].length;
-	Ai = A.length;
-	Bj = B[0].length;
-	Bi = B.length;
+		.split('\n') // extract rows
+		.map((row) => row.trim().split(' ')); // extracts columns
+}
 
-	let validMatrix = true;
-	A.map((row) => {
-		if (row.length !== Aj) {
-			validMatrix = false;
-		}
-	});
+function matrixMultiply(matA, matB) {
+	const numRowsA = matA.length;
+	const numColsA = matA[0].length;
+	const numRowsB = matB.length;
+	const numColsB = matB[0].length;
 
-	// validate matrix
-	isValidate = Aj === Bi;
-	if (isValidate && validMatrix) {
-		isValidate = true;
-		info.innerHTML = '';
-	} else {
-		info.innerHTML = 'INVALID MATRIX';
-		info.style.color = 'red';
-		return (isValidate = false);
+	// check compatibility
+	if (numColsA !== numRowsB) {
+		console.error('Error: incompatible matrix dimensions');
+		throw new Error();
 	}
 
-	// solve multiply
-	multiply(Aj, Ai, A, Bj, Bi, B);
+	for (let i = 0; i < numRowsA; i++) {
+		if (matA[i].length !== numColsA) {
+			info.innerHTML = `Error: row ${++i} in matrix A has an invalid number of columns`;
+			throw new Error();
+		}
+	}
 
-	// draw it
-	drawA();
-	drawB();
-	setTimeout(() => {
-		DrawResult();
-	}, 300);
+	for (let i = 0; i < numRowsB; i++) {
+		if (matB[i].length !== numColsB) {
+			info.innerHTML = `Error: row ${++i} in matrix B has an invalid number of columns`;
+			throw new Error();
+		}
+	}
+
+	// Create a new matrix to store the result
+	const result = [];
+
+	for (let i = 0; i < numRowsA; i++) {
+		const row = [];
+
+		for (let j = 0; j < numColsB; j++) {
+			let sum = 0;
+
+			for (let k = 0; k < numColsA; k++) {
+				// Multiply corresponding elements and accumulate the sum
+				sum += matA[i][k] * matB[k][j];
+			}
+
+			// Add the sum to the current row
+			row.push(sum);
+		}
+
+		// Add the completed row to the result matrix
+		result.push(row);
+	}
+
+	return result;
+}
+
+function drawMatrix(matrix, domClass) {
+	const matrixDom = document.querySelector(`.${domClass}`);
+	matrixDom.innerHTML = '';
+	// Draw matrix on screen
+	for (i = 0; i < matrix.length; i++) {
+		for (j = 0; j < matrix[0].length; j++) {
+			matrixDom.innerHTML += matrix[i][j] + ' ';
+		}
+		matrixDom.innerHTML += '<br>';
+	}
+}
+
+function doMultiply() {
+	const matrixA = extractMatrixFromRawText(inputA);
+	const matrixB = extractMatrixFromRawText(inputB);
+
+	const matrixAns = matrixMultiply(matrixA, matrixB);
+
+	drawMatrix(matrixA, 'matrix-a');
+	drawMatrix(matrixB, 'matrix-b');
+	drawMatrix(matrixAns, 'matrix-ans');
 }
